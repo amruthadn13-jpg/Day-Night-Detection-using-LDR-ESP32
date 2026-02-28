@@ -1,0 +1,24 @@
+int led=18;
+#define ldr 14
+int th=1000;
+int ldrvalue=0;
+
+void setup(){
+  pinMode(led,OUTPUT);
+  
+  Serial.begin(115200);
+}
+
+void loop(){
+  ldrvalue=analogRead(ldr);
+  if(ldrvalue>th){
+    digitalWrite(led, HIGH);
+    Serial.println("The Environment is Dark");
+    
+  }
+  else{
+    digitalWrite(led, LOW);
+    Serial.println("The Environment is Light");
+  }
+  delay(2000);
+}
